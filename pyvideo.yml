@@ -1,0 +1,34 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    # richard stuff
+    richard_repo: "https://github.com/pyvideo/richard.git"
+    richard_version: "master"
+
+    # Pyvideo site stuff
+    site_repo: "https://github.com/willkg/pyvideo.git"
+    site_version: "big-updates"
+
+    # Directory to put the source in--should probably be {{ richard_dir}}/something
+    site_source: "{{ richard_dir }}/pyvideo"
+
+    # Comma-separated set of directories to append to sys.path
+    site_path: "{{ site_source }}/config/"
+
+    db_user: richard
+    db_name: richard
+
+    # Django settings module to use
+    DATABASE_URL: "postgres:///{{ db_name }}"
+    DJANGO_SETTINGS_MODULE: "pyvideo_settings"
+    DJANGO_CONFIGURATION: "Pyvideo"
+
+  vars_files:
+    - secret.yml
+
+  remote_user: root
+  roles:
+    - common
+    - postgresql
+    - richard
