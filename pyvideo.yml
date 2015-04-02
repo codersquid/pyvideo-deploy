@@ -4,11 +4,11 @@
   vars:
     # richard stuff
     richard_repo: "https://github.com/pyvideo/richard.git"
-    richard_version: "master"
+    richard_version: "django-1.6"
 
     # Pyvideo site stuff
-    site_repo: "https://github.com/willkg/pyvideo.git"
-    site_version: "big-updates"
+    site_repo: "https://github.com/pyvideo/pyvideo.git"
+    site_version: "master"
 
     # Directory to put the source in--should probably be {{ richard_dir}}/something
     site_source: "{{ richard_dir }}/pyvideo"
