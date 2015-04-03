@@ -1,0 +1,10 @@
+---
+- name: cronjob for backing up db once a day
+  cron: name="backup db" hour="0" minute="0"
+        job="{{ site_source }}/cron/pg_backup_rotated.sh -c {{ site_source }}/cron/pg_backup.config"
+        user=postgres
+
+- name: cronjob for reindexing on the hour
+  cron: name="reindex" minute="0"
+        job="{{ richard_source }}/run_manage.sh rebuild_index --noinput"
+        user=richard
