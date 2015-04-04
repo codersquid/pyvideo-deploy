@@ -1,4 +1,7 @@
 ---
+- name: make sure db backups directory exists
+  file: path="{{ richard_dir }}/backups/" state=directory owner="postgres" group="postgres"
+
 - name: cronjob for backing up db once a day
   cron: name="backup db" hour="0" minute="0"
         job="{{ site_source }}/cron/pg_backup_rotated.sh -c {{ site_source }}/cron/pg_backup.config"
@@ -6,5 +9,5 @@
 
 - name: cronjob for reindexing on the hour
   cron: name="reindex" minute="0"
-        job="{{ richard_source }}/run_manage.sh rebuild_index --noinput"
+        job="{{ site_source }}/cron/richard_update_index.sh"
         user=richard
