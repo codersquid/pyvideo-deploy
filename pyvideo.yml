@@ -4,7 +4,8 @@
   vars:
     # richard stuff
     richard_repo: "https://github.com/pyvideo/richard.git"
-    richard_version: "django-1.6"
+    richard_remote: "origin"
+    richard_version: "master"
 
     # Pyvideo site stuff
     site_repo: "https://github.com/pyvideo/pyvideo.git"
