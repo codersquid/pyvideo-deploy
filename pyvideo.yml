@@ -5,7 +5,7 @@
     # richard stuff
     richard_repo: "https://github.com/pyvideo/richard.git"
     richard_remote: "origin"
-    richard_version: "master"
+    richard_version: "pyvideo-branch"
 
     # Pyvideo site stuff
     site_repo: "https://github.com/pyvideo/pyvideo.git"
